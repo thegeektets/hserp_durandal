@@ -1,0 +1,75 @@
+﻿
+<div id="mainwrapper" class="mainwrapper">
+    
+    <div class="header">
+        <div class="logo">
+            <a href="dashboard.html"><img src="images/logo.jpg" alt="" /></a>
+        </div>
+        <div class="headerinner">
+            <ul class="headmenu">
+                
+            </ul><!--headmenu-->
+        </div>
+    </div>
+    
+    <div class="leftpanel">
+        
+        <div class="leftmenu">        
+            <ul class="nav nav-tabs nav-stacked">
+             <li class="nav-header"> App Navigation</li>
+
+             <!--
+              <li><a href="#"><span class="iconfa-briefcase"></span> Dashboard</a></li>
+                <li ><a class="dropdown" data-toggle="dropdown" href="/#"><span class="iconfa-pencil"></span> Students </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Student Admission </a></li>
+                        <li><a href="#studentdetails">Student Details </a></li>
+                       </ul>
+                </li>
+            </ul>
+            -->
+           
+               <ul class="nav nav-tabs nav-stacked" data-bind="foreach: router.navigationModel">
+                
+                <!-- ko if: $data.childRoutes === undefined && $data.parent === undefined -->
+            
+                <li data-bind="css: { active: isActive }">
+                    <a data-bind="attr: { href: hash }, html: name"></a>
+                </li>
+
+                 <!-- /ko -->
+            <!-- ko if: $data.childRoutes !== undefined -->
+               
+                <li data-bind="css: { active: isActive }" >
+                <a data-bind= " html: name" href="/#" class="dropdown" data-toggle="dropdown"></a>
+                
+                <ul data-bind="foreach: childRoutes" class="dropdown-menu">
+                  <!-- ko if: $data.nav !== false -->
+           
+                    <li data-bind="css: { active: isActive }">
+                    <a data-bind="attr: { href: hash }, html: name"></a>
+                     </li>
+                  <!-- /ko -->  
+                </ul>
+                </li>
+                
+             <!-- /ko -->          
+        
+            </ul>
+            
+        </div><!--leftmenu-->
+        
+    </div><!-- leftpanel -->
+    
+    <div data-bind="router: { transition:'entrance' }"></div>
+               
+   <div class="footer">
+                    <div class="footer-left" style="padding-left:10px">
+                        <span>&copy;  Copyright <a href="http://equiplexdevelopers.com" target="_blank"> Equiplex Business Solutions </a> 2014. HSERP. All Rights Reserved.</span>
+                    </div>
+                    <div class="footer-right" style="padding-right:10px">
+                        <span>Developed by: <a href="#studentdetails">Griffin M.</a></span>
+                    </div>
+                </div><!--footer-->  
+</div><!--mainwrapper-->
+ 
